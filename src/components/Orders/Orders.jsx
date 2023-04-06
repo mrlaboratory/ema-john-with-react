@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import Cart from '../Cart';
 import loadShoppingCart from '../loadShoppingCart';
-import { useLoaderData } from 'react-router-dom';
+import { Link, Route, useLoaderData, useLocation } from 'react-router-dom';
 import ReviewItem from '../ReviewItem/ReviewItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Orders = () => {
   const [data,setData] = useState(useLoaderData())
+  const loaction = useLocation()
+  console.log(loaction)
   console.log(data)
   return (
     <div className='container mx-auto'>
@@ -18,7 +21,12 @@ const Orders = () => {
 
         </div>
         <div className='  bg-[#FFE0B3] rounded-lg p-5'>
-          <Cart  cartData={data}>Order Summery</Cart>
+          <Cart  cartData={data} setCartData={setData}>
+            <Link to="/checkout">
+            <button className='btn w-full mt-3'> Proceed to checkout </button>
+            </Link>
+          </Cart>
+          
         </div>
 
 

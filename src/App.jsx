@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import Product from './components/Product/Product';
 import { addToDb, getShoppingCart } from './utilities/fakedb';
 import Cart from './components/Cart';
+import { Link } from 'react-router-dom';
 
 const App = () => {
   const [data, setData] = useState([])
@@ -49,7 +50,11 @@ const App = () => {
           }
         </div>
         <div className='product-cart h-screen sticky top-0 bg-[#FFE0B3] rounded-lg p-5'>
-       <Cart cartData={cartData}>Shopping Data</Cart>
+       <Cart cartData={cartData} setCartData={setCartData}>
+       <Link to="/orders">
+            <button className='btn w-full mt-3'> Review Order </button>
+            </Link>
+       </Cart>
        </div>
       </div>
 
