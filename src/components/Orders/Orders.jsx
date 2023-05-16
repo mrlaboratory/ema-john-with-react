@@ -7,6 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Orders = () => {
   const [data,setData] = useState(useLoaderData())
+
+
+  
+  
   const loaction = useLocation()
   console.log(loaction)
   console.log(data)
@@ -16,7 +20,7 @@ const Orders = () => {
       <div className='grid grid-cols-1 md:grid-cols-3  mt-10 gap-3 p-10 max-w-[976px] mx-auto'>
         <div className='md:col-span-2'>
           {
-            data.map(product => <ReviewItem data={data} setData={setData} key={product.id} product={product}></ReviewItem> )
+            data.map(product => <ReviewItem data={data} setData={setData} key={product._id} product={product}></ReviewItem> )
           }
 
         </div>

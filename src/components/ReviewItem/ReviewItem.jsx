@@ -7,7 +7,7 @@ const ReviewItem = ({ data, product, setData }) => {
 
     const removeCart = (id) => {
         removeFromDb(id)
-        const remaining = data.filter(pd => pd.id != id)
+        const remaining = data.filter(pd => pd._id != id)
         setData(remaining)
     }
 
@@ -22,7 +22,7 @@ const ReviewItem = ({ data, product, setData }) => {
                 <h3>Quantity : <span className='text-[#b6802f]'>{product.quantity}</span></h3>
                 <h3>Shpping charge : <span className='text-[#b6802f]'>{product.quantity}</span></h3>
             </div>
-            <button className='btn rounded-full bg-red-200 border-none text-red-500 text-xl' onClick={() => removeCart(product.id)}>
+            <button className='btn rounded-full bg-red-200 border-none text-red-500 text-xl' onClick={() => removeCart(product._id)}>
                 <FontAwesomeIcon icon={faTrashAlt} /></button>
         </div>
     );
